@@ -5,19 +5,18 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.generation.blogpessoal.model.Postagem;
+import com.generation.blogpessoal.model.Tema;
 
 @Repository
-public interface PostagemRepository  extends JpaRepository <Postagem, Long>{
+public interface TemaRepository extends JpaRepository<Tema, Long>{
+
+	public List<Tema> findAllByDescricaoContainingIgnoreCase(String descricao);
 	
-	public List <Postagem> findAllByTituloContainingIgnoreCase(String titulo);
-	
-	/*select * fom tb_postagens where titulo like "%%"
+	/*select * fom tb_postagens where descricao like "%%"
 	select -> find
 	* -> All
 	where -> By
 	Like -> Containing
 	IgnoreCase - ignora o maiusculo e minusculo */
-	
-
 }
+	
