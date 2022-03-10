@@ -134,9 +134,9 @@ public class UsuarioControllerTest {
 	@Order(6)
 	@DisplayName("Login do Usuário")
 	public void deveAutenticarUsuario() {
-		
-		usuarioService.cadastrarUsuario(
-				new Usuario(0L, "Catarina", "catarina_moreira@gmail.com", "catBBB", "https://i.imgur.com/yDRVeK7.jpg"));
+
+		usuarioService.cadastrarUsuario(new Usuario(0L, "Marisa Souza", "marisa_souza@email.com.br", "13465278",
+				"https://i.imgur.com/T12NIp9.jpg"));
 
 		HttpEntity<UsuarioLogin> corpoRequisicao = new HttpEntity<UsuarioLogin>(
 				new UsuarioLogin(0L, "", "marisa_souza@email.com.br", "13465278", "", ""));
@@ -145,5 +145,6 @@ public class UsuarioControllerTest {
 				corpoRequisicao, UsuarioLogin.class);
 
 		assertEquals(HttpStatus.OK, corpoResposta.getStatusCode());
+
 	}
 }
